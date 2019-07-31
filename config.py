@@ -12,5 +12,5 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    MAIL_DIR = os.environ.get('MAIL_DIR') or "cloud.ceib.cs.adm@gmail.com"
+    MAIL_DIR = os.environ.get('MAIL_DIR') or ""
     MAIL_PASS = os.environ.get('MAIL_PASS') or getpass.getpass("Password: ")
