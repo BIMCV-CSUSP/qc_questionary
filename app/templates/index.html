@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w3-row">
+    <div class="w3-col m6 w3-center">
+        <div class="w3-panel w3-row">
+            <div class="w3-container w3-col l2"></div>
+            <figure class="w3-container w3-col l8" style="margin:0px">
+                <img src="{{url_for('img')}}" alt="img segment" style="width:100%">
+                <figcaption>Original iamge</figcaption>
+            </figure>
+            <div class="w3-container w3-col l2"></div>
+        </div>
+        <div class="w3-panel w3-row">
+            <div class="w3-container w3-col l1"></div>
+            <figure class="w3-container w3-col l5" style="margin:0px">
+                <img src="{{url_for('img')}}" alt="img segment" style="filter:brightness(50%); width:100%">
+                <figcaption>Low brightness</figcaption>
+            </figure>
+            <figure class="w3-container w3-col l5" style="margin:0px">
+                <img src="{{url_for('img')}}" alt="img segment" style="filter:contrast(200%);width:100%">
+                <figcaption>High contrast</figcaption>
+            </figure>
+            <div class="w3-container w3-col l1"></div>
+        </div>
+    </div>
+    <div class="w3-container w3-col m6" style="height:100%;overflow-y:auto">
+        <form class="w3-margin-top" action="" method="post" novalidate>
+            {{ quest_form.hidden_tag() }}
+
+            <div class = "w3-card">
+                <div class="w3-bar w3-teal">
+                    <span class="w3-large w3-padding-small">{{ quest_form.questionQC }}</span>
+                    <a class="w3-right w3-large w3-padding-small" href="http://cbs.fas.harvard.edu/usr/mcmains/CBS_MRI_Qualitative_Quality_Control_Manual.pdf" target="_blank"><i class='fas fa-question-circle'></i></a>
+                </diV>
+                <ul class="w3-ul">
+                    <li>{{ quest_form.question_wrapping() }} {{ quest_form.question_wrapping.label }}</li>
+                    <li>{{ quest_form.question_fov_clipping() }} {{ quest_form.question_fov_clipping.label }}</li>
+                    <li>{{ quest_form.question_ringing() }} {{ quest_form.question_ringing.label }}</li>
+                    <li>{{ quest_form.question_striping() }} {{ quest_form.question_striping.label }}</li>
+                    <li>{{ quest_form.question_blurring() }} {{ quest_form.question_blurring.label }}</li>
+                    <li>{{ quest_form.question_shadowed_arc() }} {{ quest_form.question_shadowed_arc.label }}</li>
+                    <li>{{ quest_form.question_rf_noise() }} {{ quest_form.question_rf_noise.label }}</li>
+                    <li>{{ quest_form.question_spiking() }} {{ quest_form.question_spiking.label }}</li>
+                    <li>{{ quest_form.question_signal_loss() }} {{ quest_form.question_signal_loss.label }}</li>
+                    <li>{{ quest_form.question_unexpected_inhomogeneity() }} {{ quest_form.question_unexpected_inhomogeneity.label }}</li>
+                    <li>{{ quest_form.question_ghosting() }} {{ quest_form.question_ghosting.label }}</li>
+                    <li>{{ quest_form.question_motion_slice() }} {{ quest_form.question_motion_slice.label }}</li>
+                    <li>{{ quest_form.question_unknown() }} {{ quest_form.question_unknown.label }}</li>
+                </ul>
+            </div>
+
+
+            <div class="w3-right-align w3-margin-top">{{quest_form.submit()}}</div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
